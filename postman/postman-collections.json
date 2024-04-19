@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "ebfd0ea1-e920-4e7a-b041-bd11cf2464e7",
+		"name": "Firestore Book Library API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "755513"
+	},
+	"item": [
+		{
+			"name": "Get All Books",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_base_url}}/books?pageSize=10&offset=0",
+					"host": [
+						"{{api_base_url}}"
+					],
+					"path": [
+						"books"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "AuthorName",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "2022",
+							"disabled": true
+						},
+						{
+							"key": "genre",
+							"value": "GenreName",
+							"disabled": true
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_base_url}}/books/{{book_id}}",
+					"host": [
+						"{{api_base_url}}"
+					],
+					"path": [
+						"books",
+						"{{book_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Book Entry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Book Title 4\",\n\t\"author\": \"Author Name\",\n\t\"summary\": \"Book Summary\",\n\t\"year\": 2022,\n\t\"genre\": \"Genre\"\n}"
+				},
+				"url": {
+					"raw": "{{api_base_url}}/books",
+					"host": [
+						"{{api_base_url}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Existing Book",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  {{auth_token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Updated Title\",\n\t\"author\": \"Updated Author\",\n\t\"summary\": \"Updated Summary\",\n\t\"year\": 2023,\n\t\"genre\": \"Updated Genre\"\n}"
+				},
+				"url": {
+					"raw": "{{api_base_url}}/books/{{book_id}}",
+					"host": [
+						"{{api_base_url}}"
+					],
+					"path": [
+						"books",
+						"{{book_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  {{auth_token}}"
+					}
+				],
+				"url": {
+					"raw": "{{api_base_url}}/books/YOUR_BOOK_ID",
+					"host": [
+						"{{api_base_url}}"
+					],
+					"path": [
+						"books",
+						"YOUR_BOOK_ID"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
